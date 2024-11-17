@@ -30,8 +30,7 @@ def check_member_by_name(search_name):
     for member_id, info in members.items():
         if info['name'] == search_name:
             return False   # 返回包含level和coins的字典
-    print('账号已存在')
-    return True
+
 
 num = int(input())
 if num == 0:
@@ -42,6 +41,9 @@ if num ==1:
     print(f"ID:{result[0]},{result[1]}")
 if num ==2:
     new_name = input('输入账号名、等级、金币数量')
+    new_name = new_name.split(',')
     if check_member_by_name(new_name[0]):
-        members.update({new_name[0]:{'name':new_name[0],'level':new_name[1],'coins':new_name[2]}})
+        members.update({11:{'name':new_name[0],'level':new_name[1],'coins':new_name[2]}})
         print(members)
+    if new_name[0] in members:
+        print('账号已存在')
